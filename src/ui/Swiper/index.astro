@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+  navigation?: boolean;
+}
+
+const { class: classname, navigation = false, ...rest } = Astro.props;
+---
+
+<div class="swiper">
+  <div class="swiper-container" class:list={classname} {...rest}>
+    <div class="swiper-wrapper">
+      <slot />
+    </div>
+  </div>
+
+ {
+   navigation && (
+     <div class="swiper-btn btn-prev" role="button" aria-label="Назад" tabindex="0"></div>
+     <div class="swiper-btn btn-next" role="button" aria-label="Вперед" tabindex="0"></div>
+   )
+ }
+</div>

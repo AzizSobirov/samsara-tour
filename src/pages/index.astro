@@ -1,0 +1,64 @@
+---
+import App from "../layouts/App.astro";
+import { H1, H2, H3, Button, Section, Image, Icon } from "@ui";
+---
+
+<App title="Главная">
+  <main>
+    <!-- Intro -->
+    <Section name="intro">
+      <div class="intro__text">
+        <H2>Открой север с нами</H2>
+        <div class="intro__text-desc">
+          Авторские туры от профессиональных гидов <br />
+          по Кольскому полуострову
+        </div>
+        <div
+          class="btn variant-outline"
+          role="button"
+          aria-label="Записаться на тур"
+          tabindex="0"
+          data-modal="form"
+        >
+          <span>Записаться на тур</span>
+          <div class="bg-img">
+            <svg
+              width="180"
+              height="32"
+              viewBox="0 0 180 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M19.5 1H1V31H141.5M43.5 1H179V31H167.5" stroke="#1E1E1E"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="intro__swiper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {
+              Array.from({ length: 5 }).map(() => (
+                <a href="#" class="swiper-slide">
+                  <div class="bg-img">
+                    <Image src="intro/slide-1.png" />
+                  </div>
+                  <div class="swiper-slide-title">Этнодеревня и хибины</div>
+                  <div class="swiper-slide-desc">
+                    Саамская деревня и невероятные хибины. Тундра и дикая
+                    природа.
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </Section>
+
+    <div class="example"></div>
+  </main>
+</App>

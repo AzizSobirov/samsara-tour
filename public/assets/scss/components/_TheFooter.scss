@@ -1,0 +1,157 @@
+/* Styles for the TheFooter component */
+.footer {
+  padding: 100px 0 50px;
+
+  @include media("lg") {
+    padding: 50px 0 110px;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include media("lg") {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 60px 100px;
+    }
+    @include media("sm") {
+      gap: 40px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    &-title {
+      margin-bottom: 3px;
+      color: #9e9e9e;
+      font-size: 20px;
+    }
+
+    &-socials {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 660px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    @include media("1380px") {
+      max-width: 420px;
+    }
+    @include media("lg") {
+      max-width: 100%;
+    }
+
+    &-title {
+      margin-bottom: 5px;
+    }
+
+    &-action {
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 25px;
+
+      @include media("xs") {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      & > div {
+        font-size: 10px;
+      }
+    }
+
+    input,
+    textarea {
+      padding-bottom: 10px;
+      width: 100%;
+      font-size: 14px;
+      border-bottom: 1px solid var(--text-color);
+
+      &::placeholder {
+        color: #9e9e9e;
+      }
+    }
+
+    textarea {
+      min-height: 45px;
+      resize: x;
+    }
+  }
+
+  &__bottom {
+    margin-top: 60px;
+    width: 100%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include media("lg") {
+      flex-wrap: wrap;
+    }
+    @include media("xs") {
+      margin-top: 40px;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    &-dev {
+      color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      svg > * {
+        transition: var(--transition-ease);
+      }
+
+      span {
+        font-size: 12px;
+      }
+
+      &:hover svg {
+        color: var(--primary);
+      }
+
+      @include media("sm") {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+}

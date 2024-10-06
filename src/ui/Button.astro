@@ -1,0 +1,66 @@
+---
+interface Props {
+  icon?: any;
+  color?: string;
+  variant?: "link" | "solid" | "outline" | "soft" | "ghost";
+  size?: "sm" | "md" | "lg" | "xl";
+  rounded?: "none" | "sm" | "md" | "lg" | "xl" | "full";
+  disabled?: boolean;
+  href?: string;
+  target?: "_self" | "_blank" | "_parent" | "_top";
+  action?: string;
+}
+
+const {
+  icon,
+  color,
+  variant = "solid",
+  size,
+  rounded,
+  disabled = false,
+  action = "form",
+  href,
+  target,
+  ...rest
+} = Astro.props;
+
+const Tag = variant === "link" || href ? "a" : "button";
+const additional: any = { ...rest };
+
+if (action && variant != "link" && !href) {
+  additional.onclick = `modal.open('${action}')`;
+  if (Astro.slots.has("default")) {
+    additional["aria-label"] = await Astro.slots.render("default");
+  }
+} else if (variant === "link" || href) {
+  additional.href = href;
+  if (Astro.slots.has("default")) {
+    additional.title = await Astro.slots.render("default");
+  }
+  if (target) {
+    additional.target = target;
+  }
+} else {
+  if (Astro.slots.has("default")) {
+    additional["aria-label"] = await Astro.slots.render("default");
+  }
+}
+
+additional.class = `btn`;
+if (variant) {
+  additional.class += ` variant-${variant}`;
+}
+if (color) {
+  additional.class += ` color-${color}`;
+}
+if (size) {
+  additional.class += ` size-${size}`;
+}
+if (rounded) {
+  additional.class += ` rounded-${rounded}`;
+}
+---
+
+<Tag disabled={disabled} {...additional}>
+  <slot />
+</Tag>

@@ -1,0 +1,84 @@
+---
+import { H3 } from "@ui";
+---
+
+<div class="modal">
+  <div class="modal__bg" data-modal="close"></div>
+
+  <div class="container">
+    <div class="modal__content" data-root="form">
+      <div class="modal__close" data-modal="close">
+        <svg
+          width="35"
+          height="35"
+          viewBox="0 0 35 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M34.5 0.5L1 34" stroke="white"></path>
+          <path d="M34.5 0.5L1 34" stroke="white"></path>
+          <path d="M34.5 0.5L1 34" stroke="white"></path>
+          <path d="M1 0.5L34.5 34" stroke="white"></path>
+          <path d="M1 0.5L34.5 34" stroke="white"></path>
+          <path d="M1 0.5L34.5 34" stroke="white"></path>
+        </svg>
+      </div>
+
+      <div class="modal__img">
+        <img src="./assets/img/modal-img.png" alt="" />
+      </div>
+
+      <div class="modal__form">
+        <H3>оставить заявку</H3>
+        <p>Оставьте заявку и наши менеждеры свяжуться с Вами.</p>
+        <form id="form-modal">
+          <input type="text" name="name" placeholder="Ваше имя" required />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Ваш телефон"
+            data-mask
+            required
+          />
+          <textarea placeholder="Ваше сообщение"></textarea>
+          <div class="modal__form-action">
+            <button class="btn variant-outline" type="submit">Отправить</button>
+            <div>
+              Отправляя заявку, вы соглашаетесь на <br /> обработку <a
+                href="#"
+                class="underline">персональных данных</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal__content" data-root="success">
+      <div class="modal__close" data-modal="close">
+        <svg
+          width="35"
+          height="35"
+          viewBox="0 0 35 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M34.5 0.5L1 34" stroke="white"></path>
+          <path d="M34.5 0.5L1 34" stroke="white"></path>
+          <path d="M34.5 0.5L1 34" stroke="white"></path>
+          <path d="M1 0.5L34.5 34" stroke="white"></path>
+          <path d="M1 0.5L34.5 34" stroke="white"></path>
+          <path d="M1 0.5L34.5 34" stroke="white"></path>
+        </svg>
+      </div>
+
+      <div class="modal__img">
+        <img src="./assets/img/modal-img.png" alt="" />
+      </div>
+
+      <div class="modal__success">
+        <H3>Спасибо за вашу заявку</H3>
+        <p>Наш менеджер уже набирает Ваш номер что бы ответить на заявку.</p>
+      </div>
+    </div>
+  </div>
+</div>

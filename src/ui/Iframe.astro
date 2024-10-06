@@ -1,0 +1,36 @@
+---
+interface Props {
+  class?: string;
+  src: string;
+  title?: string;
+  autoplay?: boolean;
+}
+
+const { class: classname, src, title = "Video Player", autoplay } = Astro.props;
+
+let videoId = "";
+let regExpShorts = /(?:\/shorts\/|v=)([a-zA-Z0-9_-]{11})/;
+let regExpRegular = /(?:youtu\.be\/|v=)([a-zA-Z0-9_-]{11})/;
+let matchShorts = src.match(regExpShorts);
+let matchRegular = src.match(regExpRegular);
+
+if (matchShorts) {
+  videoId = matchShorts[1];
+} else if (matchRegular) {
+  videoId = matchRegular[1];
+} else {
+  videoId = src;
+}
+
+if (autoplay) {
+  videoId += "?autoplay=1";
+}
+---
+
+<iframe
+  class:list={classname}
+  src={`https://www.youtube.com/embed/${videoId}`}
+  title={title}
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen></iframe>

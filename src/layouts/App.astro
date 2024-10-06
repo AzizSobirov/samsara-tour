@@ -1,0 +1,48 @@
+---
+import { TheHeader, TheFooter, TheModal } from "@components";
+import "../../public/assets/scss/app.scss";
+import type { PageSEO } from "@types";
+
+const _meta = {
+  lang: "ru",
+  title: "Starter Kit",
+  description: "The Site uses Starter Kit",
+  author: "",
+  color: "#fff",
+};
+
+const { title = _meta.title, meta = _meta } = Astro.props as PageSEO;
+---
+
+<!doctype html>
+<html lang={meta.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={meta.description} />
+    <meta name="author" content={meta.author} />
+    <meta name="theme-color" content={meta.color} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="./assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="./assets/css/fancybox.min.css" />
+    <title>{title}</title>
+    <slot name="head" />
+  </head>
+  <body>
+    <slot name="header" />
+    <!-- Header -->
+    <TheHeader />
+    <!-- Main -->
+    <slot />
+    <!-- TheFooter -->
+    <TheFooter />
+    <!-- TheModal -->
+    <!-- <TheModal /> -->
+    <slot name="footer" />
+
+    <!-- Scripts -->
+    <script src="./assets/js/swiper.min.js" is:inline></script>
+    <script src="./assets/js/fancybox.min.js" is:inline></script>
+    <script src={`./assets/js/app.js?v=${Date.now()}`} is:inline></script>
+  </body>
+</html>

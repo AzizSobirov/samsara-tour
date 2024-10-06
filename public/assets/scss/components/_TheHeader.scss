@@ -1,0 +1,249 @@
+/* Styles for the TheHeader component */
+.header {
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  transition: var(--transition-ease);
+  z-index: 10;
+
+  @include media("1280px", min-width) {
+    &.sticky {
+      padding: 10px 0;
+      background: #fff;
+    }
+  }
+
+  @include media("xl") {
+    position: absolute;
+    padding: 15px 0;
+  }
+
+  &__inner {
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include media("375px") {
+      height: 90px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+
+    @include media("375px") {
+      width: 90px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 85px;
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    @include media("xl") {
+      display: none;
+    }
+  }
+
+  &__right {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
+
+    @include media("xl") {
+      display: none;
+    }
+  }
+
+  &__langs {
+    padding: 14px 24px;
+    position: absolute;
+    top: 0;
+    color: #fff;
+    background: var(--primary);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 22px;
+
+    &-phone {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.mobile__menu {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  z-index: 10;
+
+  @include media("xl") {
+    display: flex;
+  }
+  @include media("xs") {
+    width: 100%;
+    max-width: calc(100% - 30px);
+  }
+  @include media("350px") {
+    max-width: calc(100% - 10px);
+  }
+
+  &-tabs {
+    padding: 16px 20px;
+    width: 100%;
+    background: #20232a;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    @include media("xs") {
+      gap: 20px;
+    }
+    @include media("350px") {
+      padding: 15px;
+      gap: 10px;
+    }
+  }
+
+  &-tab {
+    color: #a6a8a7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    svg > *,
+    span {
+      transition: var(--transition-ease);
+    }
+
+    span {
+      margin-top: 5px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    &:hover,
+    &.active {
+      color: #fff;
+    }
+  }
+
+  &-content {
+    position: absolute;
+    padding: 50px 30px 30px;
+    bottom: 90px;
+    width: 100%;
+    color: #fff;
+    background: #20232a;
+    border-radius: 15px;
+    display: none;
+
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 34px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 35px;
+
+      @include media("xxs") {
+        gap: 25px;
+      }
+    }
+
+    .header__langs {
+      all: unset;
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      order: 2;
+
+      @include media("750px", max-height) {
+        margin-top: 0;
+      }
+    }
+
+    .header__contacts {
+      margin-top: 50px;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @include media("750px", max-height) {
+        margin-top: 20px;
+      }
+
+      &-phone {
+        all: unset;
+      }
+    }
+
+    .header__socials {
+      --icon-size: 45px;
+      filter: invert(1);
+      gap: 24px;
+      
+
+      @include media("xxs") {
+        --icon-size: 32px;
+        gap: 15px;
+      }
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 22px;
+    right: 25px;
+  }
+}

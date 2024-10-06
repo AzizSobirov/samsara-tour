@@ -1,0 +1,110 @@
+.container {
+  margin: 0 auto;
+  padding-left: var(--content-padding);
+  padding-right: var(--content-padding);
+  width: 100%;
+  max-width: calc(var(--content-width) + var(--content-padding) * 2);
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  --position: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--position);
+  }
+}
+
+.icon {
+  min-width: var(--icon-size, 24px);
+  width: var(--icon-size, 24px);
+  height: var(--icon-size, 24px);
+  display: block;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.text-h2 {
+  font-size: 96px;
+  font-weight: 400;
+  font-family: var(--font-secondary);
+
+  @include media("1380px") {
+    font-size: 80px;
+  }
+  @include media("md") {
+    font-size: 64px;
+  }
+  @include media("xxs") {
+    font-size: 48px;
+  }
+}
+
+.text-h3 {
+  font-size: 48px;
+  font-weight: 400;
+  font-family: var(--font-secondary);
+
+  @include media("lg") {
+    font-size: 36px;
+  }
+  @include media("sm") {
+    font-size: 28px;
+  }
+}
+
+.breadcrumb {
+  margin-bottom: 65px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+
+  @include media("sm") {
+    margin-bottom: 30px;
+    font-size: 14px;
+    gap: 10px 15px;
+  }
+
+  div {
+    width: 40px;
+    height: 1px;
+    background: #878787;
+  }
+
+  span {
+    color: #878787;
+  }
+}
+
+[data-animation] {
+  display: block;
+  overflow: hidden;
+
+  & > span {
+    display: block;
+  }
+}

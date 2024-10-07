@@ -1,0 +1,28 @@
+---
+import { Section, H2 } from "@ui";
+---
+
+<div class="form">
+  <div class="form__text">
+    <H2>Закажите индивидуальный тур</H2>
+    <p class="form__text-desc">
+      Наши опытные специалисты подберут для вас уникальный тур, учитывая ваши
+      предпочтения, интересы и бюджет. Будьте уверены, это будет незабываемое
+      путешествие!
+    </p>
+
+    <form>
+      <input
+        type="text"
+        name="name"
+        placeholder="Ваше имя"
+        minlength="2"
+        required
+      />
+      <input type="text" name="phone" placeholder="Ваш телефон" required />
+      <textarea placeholder="Опишите свои пожелания"></textarea>
+      <button class="btn variant-solid">Отправиться в путешествие</button>
+      <p>Отправляя заявку я даю согласие на обработку персональных данных</p>
+    </form>
+  </div>
+</div>

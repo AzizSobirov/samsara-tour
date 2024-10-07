@@ -1,6 +1,16 @@
 ---
 import App from "../layouts/App.astro";
 import { H1, H2, H3, Button, Section, Image, Icon } from "@ui";
+import { TheForm } from "@components";
+
+const tours = [
+  "В поисках северного сияния",
+  "Выходные по местам силы",
+  "Мурманск",
+  "На встречу к обитателям моря",
+  "Путешествие по краю света",
+  "Саамская деревня",
+];
 ---
 
 <App title="Главная">
@@ -8,7 +18,7 @@ import { H1, H2, H3, Button, Section, Image, Icon } from "@ui";
     <!-- Intro -->
     <Section name="intro">
       <div class="intro__text">
-        <H2>Открой север с нами</H2>
+        <H1>Открой север с нами</H1>
         <div class="intro__text-desc">
           Авторские туры от профессиональных гидов <br />
           по Кольскому полуострову
@@ -59,6 +69,102 @@ import { H1, H2, H3, Button, Section, Image, Icon } from "@ui";
       </div>
     </Section>
 
-    <div class="example"></div>
+    <!-- Tours -->
+    <Section name="tours" main>
+      <Fragment slot="header">
+        <Image class="tours__bg" src="intro/bg-2.png" />
+      </Fragment>
+
+      <H2 class="text-white">Выбери свое место силы</H2>
+      <div class="tours__list">
+        {
+          tours.map((tour, index) => (
+            <div class="tours__item">
+              <div class="tours__item-img">
+                <Image src={`tours/${index + 1}.png`} />
+                <div class="tours__item-details">
+                  <span>99 999 р/чел</span>
+                  <span>3 дня</span>
+                </div>
+              </div>
+              <div class="tours__item-content">
+                <div class="tours__item-title">{tour}</div>
+                <p class="tours__item-desc">
+                  Здесь краткое описание тура и основные преимущества, примерно
+                  в две строки
+                </p>
+                <a
+                  href="/tour"
+                  class="btn variant-solid"
+                  title="Подробнее о туре"
+                >
+                  Подробнее о туре
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <a href="/tours" class="btn variant-solid" title="Показать ещё">
+        Показать ещё
+      </a>
+    </Section>
+
+    <!-- Gallery -->
+    <Section name="gallery">
+      <H2 class="text-white">Как мы отдыхаем и путешествуем</H2>
+      <div class="gallery__swiper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {
+              Array.from({ length: 5 }).map((item, index) => (
+                <div
+                  class="swiper-slide"
+                  data-fancybox="gallery"
+                  data-src={`./assets/img/gallery/how/${index + 1}.png`}
+                >
+                  <Image src={`gallery/how/${index + 1}.png`} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </Section>
+
+    <!-- Welcome -->
+    <Section name="welcome">
+      <Fragment slot="header">
+        <Image class="welcome__bg" src="welcome-bg.png" />
+      </Fragment>
+
+      <div class="welcome__text">
+        <H2>Добро пожаловать в мир Самсары!</H2>
+        <p class="welcome__text-desc">
+          Самсара – Ваш проводник по незабываем красотам <br />
+          Кольского полуострова, здесь каждый может найти путь к себе. <br />
+          Каждый тур — это не просто путешествие, <br />
+          это возможность соприкоснуться с настоящей <br />
+          природой, ощутить её дыхание и наполниться её энергией. <br />
+          Мы гарантируем комфорт и заботу <br />
+          на каждом этапе вашего путешествия. <br />
+          В стоимость туров все включено по максимуму, <br />
+          чтобы практически исключить дополнительные <br />
+          затраты и Вы были спокойны. <br />
+          Ваши мечты и желания – наша первоочередная задача. <br />
+          Откройте для себя Север с нами, <br />
+          ведь настоящее путешествие <br />
+          начинается с души.
+        </p>
+      </div>
+    </Section>
+
+    <!-- Application -->
+    <Section name="application">
+      <TheForm />
+    </Section>
   </main>
 </App>

@@ -1,16 +1,15 @@
 .btn {
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: var(--transition-ease);
 
   &.variant-solid {
-    padding: 15px 25px;
-    background: #eff0ee;
-
-    &:hover {
-      background: #d0d0d0;
-    }
+    padding: 14px 32px;
+    color: #fff;
+    background: var(--text-color);
+    border-radius: 5px;
   }
 
   &.variant-outline {

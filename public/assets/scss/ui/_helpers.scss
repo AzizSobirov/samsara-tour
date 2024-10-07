@@ -41,19 +41,23 @@
   color: var(--primary);
 }
 
+.text-white {
+  color: #fff;
+}
+
 .underline {
   text-decoration: underline;
 }
 
-.text-h2 {
+.text-h1 {
   font-size: 96px;
   font-weight: 400;
   font-family: var(--font-secondary);
 
-  @include media("1380px") {
+  @include media("md") {
     font-size: 80px;
   }
-  @include media("md") {
+  @include media("sm") {
     font-size: 64px;
   }
   @include media("xxs") {
@@ -61,50 +65,19 @@
   }
 }
 
-.text-h3 {
-  font-size: 48px;
+.text-h2 {
+  font-size: 96px;
   font-weight: 400;
   font-family: var(--font-secondary);
+  line-height: 0.9;
 
-  @include media("lg") {
-    font-size: 36px;
+  @include media("1380px") {
+    font-size: 80px;
   }
-  @include media("sm") {
-    font-size: 28px;
+  @include media("md") {
+    font-size: 64px;
   }
-}
-
-.breadcrumb {
-  margin-bottom: 65px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-
-  @include media("sm") {
-    margin-bottom: 30px;
-    font-size: 14px;
-    gap: 10px 15px;
-  }
-
-  div {
-    width: 40px;
-    height: 1px;
-    background: #878787;
-  }
-
-  span {
-    color: #878787;
-  }
-}
-
-[data-animation] {
-  display: block;
-  overflow: hidden;
-
-  & > span {
-    display: block;
+  @include media("xs") {
+    font-size: 48px;
   }
 }

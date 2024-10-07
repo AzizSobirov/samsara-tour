@@ -22,7 +22,19 @@ const { title = _meta.title, meta = _meta } = Astro.props as PageSEO;
     <meta name="description" content={meta.description} />
     <meta name="author" content={meta.author} />
     <meta name="theme-color" content={meta.color} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="favicon-light.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="favicon-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+
     <link rel="stylesheet" href="./assets/css/swiper.min.css" />
     <link rel="stylesheet" href="./assets/css/fancybox.min.css" />
     <title>{title}</title>

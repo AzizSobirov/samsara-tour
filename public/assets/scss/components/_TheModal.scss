@@ -16,7 +16,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba($color: #000000, $alpha: 0.4);
+    background: rgba($color: #000000, $alpha: 0.2);
   }
 
   &__close {
@@ -41,10 +41,16 @@
     }
   }
 
+  .container {
+    --content-width: 1360px;
+  }
+
   &__content {
     position: relative;
+    padding: 100px 40px 75px;
     color: #fff;
-    background: var(--text-color);
+    backdrop-filter: blur(14px);
+    background: rgba(30, 30, 30, 0.83);
     transition: var(--transition-bezier);
     transform: scale(0.85);
     opacity: 0;
@@ -54,105 +60,72 @@
     justify-content: flex-start;
     gap: 70px;
 
-    @include media("lg") {
-      padding: 40px;
-    }
-    @include media("xs") {
-      padding: 30px;
-    }
-  }
-
-  &__img {
-    min-width: 345px;
-    width: 345px;
-    height: 100%;
-
-    @include media("lg") {
-      display: none;
-    }
-
-    img {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      background: url("../img/bg.png") center/cover no-repeat;
+      opacity: 0.2;
+    }
+
+    @include media("3xl") {
+      padding: 75px 40px;
+    }
+    @include media("xl") {
+      padding: 50px 40px;
+    }
+    @include media("sm") {
+      padding: 40px 20px;
     }
   }
 
-  &__form {
-    width: 100%;
-    max-width: 660px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+  .form {
+    min-height: 530px;
+    max-height: calc(100vh - 100px);
+    z-index: 2;
 
-    @include media("1380px") {
-      max-width: 420px;
-    }
-    @include media("lg") {
-      max-width: 100%;
+    @include media("sm") {
+      min-height: auto;
     }
 
-    form {
-      margin-top: 8px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    &-action {
-      margin-top: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 25px;
-
-      @include media("xs") {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+    .text-h2 {
+      @include media("sm") {
+        max-width: 80%;
+        font-size: 48px;
       }
-
-      .btn {
-        border-color: #fff;
-
-        &:hover {
-          color: var(--text-color);
-          background: #fff;
-        }
-      }
-
-      & > div {
-        font-size: 10px;
+      @include media("xxs") {
+        font-size: 36px;
       }
     }
 
     input,
     textarea {
-      padding-bottom: 10px;
-      width: 100%;
-      font-size: 14px;
-      border-bottom: 1px solid #fff;
+      color: var(--text-color);
+    }
 
-      &::placeholder {
-        color: #9e9e9e;
+    .btn {
+      color: var(--text-color);
+      background: #fff;
+
+      @include media("xs") {
+        font-size: 14px;
       }
     }
 
-    textarea {
-      min-height: 45px;
-      resize: x;
-    }
-  }
+    &__img {
+      width: 440px;
+      height: 380px;
 
-  &__success {
-    width: 100%;
-    max-width: 660px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+      @include media("1240px") {
+        width: 380px;
+        height: 300px;
+      }
+      @include media("1180px") {
+        display: none;
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
 ---
 import { H3 } from "@ui";
+import { TheForm } from "@components";
 ---
 
 <div class="modal">
@@ -24,34 +25,7 @@ import { H3 } from "@ui";
         </svg>
       </div>
 
-      <div class="modal__img">
-        <img src="./assets/img/modal-img.png" alt="" />
-      </div>
-
-      <div class="modal__form">
-        <H3>оставить заявку</H3>
-        <p>Оставьте заявку и наши менеждеры свяжуться с Вами.</p>
-        <form id="form-modal">
-          <input type="text" name="name" placeholder="Ваше имя" required />
-          <input
-            type="text"
-            name="phone"
-            placeholder="Ваш телефон"
-            data-mask
-            required
-          />
-          <textarea placeholder="Ваше сообщение"></textarea>
-          <div class="modal__form-action">
-            <button class="btn variant-outline" type="submit">Отправить</button>
-            <div>
-              Отправляя заявку, вы соглашаетесь на <br /> обработку <a
-                href="#"
-                class="underline">персональных данных</a
-              >
-            </div>
-          </div>
-        </form>
-      </div>
+      <TheForm id="modal-form" />
     </div>
     <div class="modal__content" data-root="success">
       <div class="modal__close" data-modal="close">
@@ -71,14 +45,7 @@ import { H3 } from "@ui";
         </svg>
       </div>
 
-      <div class="modal__img">
-        <img src="./assets/img/modal-img.png" alt="" />
-      </div>
-
-      <div class="modal__success">
-        <H3>Спасибо за вашу заявку</H3>
-        <p>Наш менеджер уже набирает Ваш номер что бы ответить на заявку.</p>
-      </div>
+      <TheForm success />
     </div>
   </div>
 </div>

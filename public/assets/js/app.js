@@ -167,33 +167,6 @@ forms.forEach((form) => {
 });
 
 // swiper
-// let certificatesSwiper = new Swiper(".certificates .swiper", {
-//   slidesPerView: 2,
-//   spaceBetween: 8,
-//   navigation: {
-//     nextEl: ".certificates .btn-next",
-//     prevEl: ".certificates .btn-prev",
-//   },
-//   pagination: {
-//     el: ".certificates .swiper-pagination",
-//     clickable: true,
-//   },
-//   breakpoints: {
-//     475: {
-//       slidesPerView: 2,
-//       spaceBetween: 15,
-//     },
-//     // 768: {
-//     //   slidesPerView: 2,
-//     //   spaceBetween: 15,
-//     // },
-//     769: {
-//       slidesPerView: 3,
-//       spaceBetween: 20,
-//     },
-//   },
-// });
-
 var introSwiper = new Swiper(".intro .swiper", {
   slidesPerView: 1,
   pagination: {
@@ -210,10 +183,26 @@ var gallerySwiper = new Swiper(".gallery .swiper", {
     prevEl: ".gallery .swiper-button-prev",
   },
   breakpoints: {
-    // 641:{
-    //   slidesPerView: 2,
-    //   spaceBetween: 20,
-    // },
+    769: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1025: {
+      slidesPerView: 4,
+      spaceBetween: 20,
+    },
+  },
+});
+
+var northSwiper = new Swiper(".north .swiper", {
+  slidesPerView: 2,
+  spaceBetween: 10,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
     769: {
       slidesPerView: 3,
       spaceBetween: 20,
@@ -226,7 +215,7 @@ var gallerySwiper = new Swiper(".gallery .swiper", {
 });
 
 // fancybox
-let dataFancybox = ["gallery", "portfolio", "certificates"];
+let dataFancybox = ["gallery", "gallery-north"];
 dataFancybox.forEach((name) => {
   Fancybox.bind(`[data-fancybox="${name}"]`, {
     Images: { Panzoom: { maxScale: 3 } },

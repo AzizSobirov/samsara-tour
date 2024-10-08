@@ -163,8 +163,28 @@ const tours = [
     </Section>
 
     <!-- Application -->
-    <Section name="application">
+    <Section name="application" main>
       <TheForm />
+    </Section>
+
+    <!-- North beautiful -->
+    <Section name="north">
+      <H2>Север прекрасен</H2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {
+            Array.from({ length: 9 }).map((item, index) => (
+              <div
+                class="swiper-slide"
+                data-fancybox="gallery-north"
+                data-src={`./assets/img/gallery/north/${index + 1}.png`}
+              >
+                <Image src={`gallery/north/${index + 1}.png`} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </Section>
   </main>
 </App>

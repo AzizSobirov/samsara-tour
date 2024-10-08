@@ -166,6 +166,23 @@ forms.forEach((form) => {
   });
 });
 
+// tours
+const toursEl = document.querySelector(".tours");
+if (toursEl) {
+  const tours = toursEl.querySelectorAll(".tours__item");
+  const btn = toursEl.querySelector("#show-more");
+
+  if (btn) {
+    btn.addEventListener("click", () => {
+      tours.forEach((tour) => {
+        tour.style.display = "flex";
+      });
+
+      btn.style.display = "none";
+    });
+  }
+}
+
 // swiper
 var introSwiper = new Swiper(".intro .swiper", {
   slidesPerView: 1,
@@ -215,7 +232,7 @@ var northSwiper = new Swiper(".north .swiper", {
 });
 
 // fancybox
-let dataFancybox = ["gallery", "gallery-north"];
+let dataFancybox = ["gallery", "gallery-north", "reviews"];
 dataFancybox.forEach((name) => {
   Fancybox.bind(`[data-fancybox="${name}"]`, {
     Images: { Panzoom: { maxScale: 3 } },

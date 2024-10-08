@@ -1,0 +1,178 @@
+---
+import App from "../layouts/App.astro";
+import { Section, H1, H2, Image, Icon } from "@ui";
+import { TheForm } from "@components";
+
+const tours = [
+  "В поисках северного сияния",
+  "Выходные по местам силы",
+  "Мурманск",
+];
+---
+
+<App title="В поисках северного сияния">
+  <main>
+    <!-- Hero -->
+    <Section name="hero">
+      <Fragment slot="header">
+        <div class="bg">
+          <video
+            class="bg-video"
+            autoplay
+            muted
+            loop
+            poster="./assets/img/hero/tour-1.png"
+          >
+            <source src="./assets/videos/tour-1.mp4" type="video/mp4" />
+          </video>
+          <Image class="bg-image" src="hero/tour-1.png" />
+        </div>
+      </Fragment>
+
+      <div class="hero__content">
+        <H1>В поисках северного сияния</H1>
+        <p class="hero__content-desc">
+          Бескрайние снега, полярная ночь и северное сияние — это все то, зачем <br
+          /> приезжают люди в Мурманск. С наступление холодов над Кольским <br
+          /> полуостровом появляется северное сияние на небе. Оно и будет нашей главной
+          <br /> целью. Мы знаем лучшие места за городом и регулярно мониторим активность
+          северного сияния.
+        </p>
+        <div
+          class="btn variant-outline"
+          role="button"
+          aria-label="Записаться на тур"
+          tabindex="0"
+          data-modal="form"
+        >
+          <span>Записаться на тур</span>
+          <div class="bg-img">
+            <svg
+              width="180"
+              height="32"
+              viewBox="0 0 180 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M19.5 1H1V31H141.5M43.5 1H179V31H167.5" stroke="#ffffff"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- tour -->
+    <Section name="tour">
+      <div class="tour__wrapper">
+        <div class="tour__item">
+          <h2 class="text-h2">Описание тура</h2>
+          <p class="tour__item-desc">
+            Мы сделаем для Вас фотографии на фоне сияния и отправим кадры по
+            окончании экскурсии. <br />
+            Мы можем обещать, что приложим максимум усилий для поиска северного сияния,
+            однако однозначной гарантии поймать это явление нет. <br />
+            После бронирования мы составляем прогноз сияния и вы самостоятельно принимаете
+            решение на выезд, экскурсия состоится в любом случае. <br />
+            Длительность экскурсии ориентировочно 4 часа. <br />
+            Одевайтесь тепло и удобно.
+          </p>
+        </div>
+        <div class="tour__item">
+          <h2 class="text-h2">В стоимость включено</h2>
+          <ul class="tour__item-list">
+            <li>Трансфер на комфортабельном транспорте по всему маршруту.</li>
+            <li>Экскурсионное сопровождение.</li>
+            <li>Горячий чай и перекус.</li>
+            <li>Профессиональные фотографии.</li>
+          </ul>
+        </div>
+        <div class="tour__item">
+          <h2 class="text-h2">Стоимость тура</h2>
+          <ul class="tour__item-list">
+            <li>Сборная группа - 5900р/чел (3-6 чел)</li>
+            <li>Индивидуальная поездка - 35000р/машина (1-2чел)</li>
+          </ul>
+          <div
+            class="btn variant-solid"
+            role="button"
+            tabindex="0"
+            aria-label="Забронировать тур"
+            data-modal="form"
+          >
+            Забронировать тур
+          </div>
+        </div>
+      </div>
+      <p class="tour__desc">
+        Если у Вас возникли вопросы по туру, пожалуйста, свяжитесь с нами по
+        телефону +7(921)176-66-69 -мы с удовольствием на них ответим и <br /> подберем
+        решение именно для Вас.
+      </p>
+    </Section>
+
+    <!-- Gallery -->
+    <Section name="gallery">
+      <H2>Фото из тура</H2>
+      <div class="gallery__swiper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {
+              Array.from({ length: 7 }).map((item, index) => (
+                <div
+                  class="swiper-slide"
+                  data-fancybox="gallery"
+                  data-src={`./assets/img/gallery/tours/${index + 1}.png`}
+                >
+                  <Image src={`gallery/tours/${index + 1}.png`} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </Section>
+
+    <!-- Application -->
+    <Section name="application">
+      <TheForm />
+    </Section>
+
+    <!-- Tours -->
+    <Section name="tours">
+      <H2>Смотрите также другие туры</H2>
+      <div class="tours__list">
+        {
+          tours.map((tour, index) => (
+            <div class="tours__item">
+              <div class="tours__item-img">
+                <Image src={`tours/${index + 1}.png`} />
+                <div class="tours__item-details">
+                  <span>99 999 р/чел</span>
+                  <span>3 дня</span>
+                </div>
+              </div>
+              <div class="tours__item-content">
+                <div class="tours__item-title">{tour}</div>
+                <p class="tours__item-desc">
+                  Здесь краткое описание тура и основные преимущества, примерно
+                  в две строки
+                </p>
+                <a
+                  href="/tour"
+                  class="btn variant-solid"
+                  title="Подробнее о туре"
+                >
+                  Подробнее о туре
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Section>
+  </main>
+</App>

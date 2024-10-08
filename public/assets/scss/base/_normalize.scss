@@ -8,7 +8,7 @@
 body {
   color: var(--text-color);
   background: url("../img/bg.png");
-  background-position: center;
+  background-position: top;
   background-repeat: repeat-y;
   background-size: 100%;
   font-family: var(--font-primary);
@@ -17,6 +17,10 @@ body {
 
   &.overflow-hidden {
     overflow: hidden;
+  }
+
+  @include media("sm") {
+    background-size: 150%;
   }
 }
 

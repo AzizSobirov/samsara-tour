@@ -1,0 +1,161 @@
+---
+import App from "../layouts/App.astro";
+import { Section, H1, H2, Image, Icon } from "@ui";
+import { TheForm } from "@components";
+
+const tours = [
+  "В поисках северного сияния",
+  "Выходные по местам силы",
+  "Мурманск",
+  "На встречу к обитателям моря",
+  "Путешествие по краю света",
+  "Саамская деревня",
+  "Путешествие в мир северных оленей и сибирских хаски",
+  "Фототур с Натальей Могилевской",
+  "Этнодеревня и хибины",
+  "В поисках северного сияния",
+  "Выходные по местам силы",
+  "Мурманск",
+];
+---
+
+<App title="Туры">
+  <main>
+    <!-- Hero -->
+    <Section name="hero">
+      <Fragment slot="header">
+        <div class="bg">
+          <video
+            class="bg-video"
+            autoplay
+            muted
+            loop
+            poster="./assets/img/hero/tours.png"
+          >
+            <source src="./assets/videos/tours.mp4" type="video/mp4" />
+          </video>
+          <Image class="bg-image" src="hero/tours.png" />
+        </div>
+      </Fragment>
+
+      <div class="hero__content">
+        <H1>Авторские туры</H1>
+        <p class="hero__content-desc">От людей которые любят путешествовать</p>
+        <div
+          class="btn variant-outline"
+          role="button"
+          aria-label="Записаться на тур"
+          tabindex="0"
+          data-modal="form"
+        >
+          <span>Записаться на тур</span>
+          <div class="bg-img">
+            <svg
+              width="180"
+              height="32"
+              viewBox="0 0 180 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M19.5 1H1V31H141.5M43.5 1H179V31H167.5" stroke="#ffffff"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Tours -->
+    <Section name="tours">
+      <H2>Выбери свое место силы</H2>
+      <div class="tours__list">
+        {
+          tours.map((tour, index) => (
+            <div class="tours__item">
+              <div class="tours__item-img">
+                <Image src={`tours/${index + 1}.png`} />
+                <div class="tours__item-details">
+                  <span>99 999 р/чел</span>
+                  <span>3 дня</span>
+                </div>
+              </div>
+              <div class="tours__item-content">
+                <div class="tours__item-title">{tour}</div>
+                <p class="tours__item-desc">
+                  Здесь краткое описание тура и основные преимущества, примерно
+                  в две строки
+                </p>
+                <a
+                  href="/tour"
+                  class="btn variant-solid"
+                  title="Подробнее о туре"
+                >
+                  Подробнее о туре
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="btn variant-solid"
+        role="button"
+        tabindex="0"
+        aria-label="Показать ещё"
+        id="show-more"
+      >
+        Показать ещё
+      </div>
+    </Section>
+
+    <!-- Gallery -->
+    <Section name="gallery">
+      <H2>Как мы отдыхаем и путешествуем</H2>
+      <div class="gallery__swiper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {
+              Array.from({ length: 6 }).map((item, index) => (
+                <div
+                  class="swiper-slide"
+                  data-fancybox="gallery"
+                  data-src={`./assets/img/gallery/tours/${index + 1}.png`}
+                >
+                  <Image src={`gallery/tours/${index + 1}.png`} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </Section>
+
+    <!-- Application -->
+    <Section name="application">
+      <TheForm />
+    </Section>
+
+    <!-- North beautiful -->
+    <Section name="north">
+      <H2>Север прекрасен</H2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {
+            Array.from({ length: 9 }).map((item, index) => (
+              <div
+                class="swiper-slide"
+                data-fancybox="gallery-north"
+                data-src={`./assets/img/gallery/north/${index + 1}.png`}
+              >
+                <Image src={`gallery/north/${index + 1}.png`} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </Section>
+  </main>
+</App>

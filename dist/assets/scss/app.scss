@@ -1,0 +1,33 @@
+@import "base/mixins";
+
+@include font-face("Comfortaa", 300);
+@include font-face("Comfortaa", 400);
+@include font-face("Comfortaa", 600);
+@include font-face("Comfortaa", 700);
+@include font-face("Vasek-Italic", 400);
+
+:root {
+  --primary: #1e1e1e;
+  --text-color: #1e1e1e;
+  --font-primary: "Comfortaa", sans-serif;
+  --font-secondary: "Vasek-Italic", sans-serif;
+  --transition-ease: 0.3s ease;
+  --transition-bezier: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --content-width: 100%;
+  --content-padding: 90px;
+}
+@include media("xl") {
+  :root {
+    --content-padding: 60px;
+  }
+}
+@include media("md") {
+  :root {
+    --content-padding: 16px;
+  }
+}
+
+@import "base/normalize";
+@import "ui/index";
+@import "components/index";
+@import "index";

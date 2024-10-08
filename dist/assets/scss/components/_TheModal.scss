@@ -1,0 +1,131 @@
+/* Styles for the TheModal component */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.2);
+  }
+
+  &__close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 2;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include media("sm") {
+      top: 15px;
+      right: 15px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .container {
+    --content-width: 1360px;
+  }
+
+  &__content {
+    position: relative;
+    padding: 100px 40px 75px;
+    color: #fff;
+    backdrop-filter: blur(14px);
+    background: rgba(30, 30, 30, 0.83);
+    transition: var(--transition-bezier);
+    transform: scale(0.85);
+    opacity: 0;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 70px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../img/bg.png") center/cover no-repeat;
+      opacity: 0.2;
+    }
+
+    @include media("3xl") {
+      padding: 75px 40px;
+    }
+    @include media("xl") {
+      padding: 50px 40px;
+    }
+    @include media("sm") {
+      padding: 40px 20px;
+    }
+  }
+
+  .form {
+    min-height: 530px;
+    max-height: calc(100vh - 100px);
+    z-index: 2;
+
+    @include media("sm") {
+      min-height: auto;
+    }
+
+    .text-h2 {
+      @include media("sm") {
+        max-width: 80%;
+        font-size: 48px;
+      }
+      @include media("xxs") {
+        font-size: 36px;
+      }
+    }
+
+    input,
+    textarea {
+      color: var(--text-color);
+    }
+
+    .btn {
+      color: var(--text-color);
+      background: #fff;
+
+      @include media("xs") {
+        font-size: 14px;
+      }
+    }
+
+    &__img {
+      width: 440px;
+      height: 380px;
+
+      @include media("1240px") {
+        width: 380px;
+        height: 300px;
+      }
+      @include media("1180px") {
+        display: none;
+      }
+    }
+  }
+}

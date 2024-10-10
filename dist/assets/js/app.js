@@ -214,11 +214,16 @@ var gallerySwiper = new Swiper(".gallery .swiper", {
 var northSwiper = new Swiper(".north .swiper", {
   slidesPerView: 2,
   spaceBetween: 10,
+  initialSlide: 1,
   loop: true,
+  allowTouchMove: false,
   autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
+    enabled: true,
+    delay: 0,
+    pauseOnMouseEnter: false,
+    disableOnInteraction: true,
   },
+  speed: 8000,
   breakpoints: {
     769: {
       slidesPerView: 3,

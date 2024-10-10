@@ -37,6 +37,10 @@ section {
     background: url("../img/intro/bg.png") center/cover no-repeat;
     background-attachment: fixed;
     z-index: -2;
+
+    @include media("sm") {
+      background-attachment: unset;
+    }
   }
 
   &__inner {
